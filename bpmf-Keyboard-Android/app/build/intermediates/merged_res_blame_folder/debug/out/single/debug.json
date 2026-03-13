@@ -4,10 +4,6 @@
         "source": "/Users/dennisli/.gradle/daemon/8.4/com.dennisli.bpmfkeyboard.app-main-33:/xml/keyboard_qwerty.xml"
     },
     {
-        "merged": "com.dennisli.bpmfkeyboard.app-merged_res-31:/layout_keyboard_view.xml.flat",
-        "source": "com.dennisli.bpmfkeyboard.app-main-33:/layout/keyboard_view.xml"
-    },
-    {
         "merged": "/Users/dennisli/.gradle/daemon/8.4/com.dennisli.bpmfkeyboard.app-merged_res-31:/xml_method.xml.flat",
         "source": "/Users/dennisli/.gradle/daemon/8.4/com.dennisli.bpmfkeyboard.app-main-33:/xml/method.xml"
     },
@@ -18,6 +14,10 @@
     {
         "merged": "/Users/dennisli/.gradle/daemon/8.4/com.dennisli.bpmfkeyboard.app-merged_res-31:/drawable_key_bg_selector.xml.flat",
         "source": "/Users/dennisli/.gradle/daemon/8.4/com.dennisli.bpmfkeyboard.app-main-33:/drawable/key_bg_selector.xml"
+    },
+    {
+        "merged": "com.dennisli.bpmfkeyboard.app-merged_res-31:/xml_keyboard_qwerty.xml.flat",
+        "source": "com.dennisli.bpmfkeyboard.app-main-33:/xml/keyboard_qwerty.xml"
     },
     {
         "merged": "/Users/dennisli/.gradle/daemon/8.4/com.dennisli.bpmfkeyboard.app-merged_res-31:/layout_keyboard_view.xml.flat",

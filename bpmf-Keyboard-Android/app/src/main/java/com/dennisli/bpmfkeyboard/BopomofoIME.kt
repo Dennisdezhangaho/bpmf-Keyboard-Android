@@ -106,10 +106,25 @@ class BopomofoIME : InputMethodService(), KeyboardView.OnKeyboardActionListener 
             }
             else -> {
                 if (primaryCode <= 0) return
-                val raw  = primaryCode.toChar().toString()
-                val text = if (shiftState > 0) raw.uppercase() else raw
+
+                val raw = primaryCode.toChar().toString()
+                val text = if (shiftState > 0) {
+                    when (raw) {
+                        "\u0251" -> "A"        // ɑ -> A
+                        "\u00FC" -> "\u00DC"   // ü -> Ü
+                        else -> raw.uppercase()
+                    }
+                } else {
+                    raw
+                }
+
                 ic.commitText(text, 1)
-                if (shiftState == 1) { shiftState = 0; updateShiftState() }
+
+                if (shiftState == 1) {
+                    shiftState = 0
+                    updateShiftState()
+                }
+
                 detectTones(text)
                 playClick()
             }
@@ -192,21 +207,32 @@ class BopomofoIME : InputMethodService(), KeyboardView.OnKeyboardActionListener 
     private fun updateShiftState() {
         val kb = keyboardView.keyboard ?: return
         kb.isShifted = shiftState > 0
+
         for (key in kb.keys) {
             val lbl = key.label?.toString() ?: continue
-            if (lbl.length == 1 && lbl[0].isLetter()) {
-                key.label = if (shiftState > 0) lbl.uppercase() else lbl.lowercase()
+            if (lbl.isEmpty()) continue
+
+            val newLabel = if (shiftState > 0) {
+                when (lbl) {
+                    "\u0251" -> "A"        // ɑ -> A
+                    "\u00FC" -> "\u00DC"   // ü -> Ü
+                    else -> {
+                        if (lbl.length == 1 && lbl[0].isLetter()) lbl.uppercase() else lbl
+                    }
+                }
+            } else {
+                when {
+                    key.codes.isNotEmpty() && key.codes[0] == 593 -> "\u0251" // ɑ key
+                    key.codes.isNotEmpty() && key.codes[0] == 252 -> "\u00FC" // ü key
+                    else -> {
+                        if (lbl.length == 1 && lbl[0].isLetter()) lbl.lowercase() else lbl
+                    }
+                }
             }
+
+            key.label = newLabel
         }
-        // ɑ ↔ A  and  ü ↔ Ü
-        for (key in kb.keys) {
-            when (key.label?.toString()) {
-                "\u0251" -> if (shiftState > 0) key.label = "A"
-                "A"      -> if (shiftState == 0 && key.codes[0] == 593) key.label = "\u0251"
-                "\u00FC" -> if (shiftState > 0) key.label = "\u00DC"
-                "\u00DC" -> if (shiftState == 0) key.label = "\u00FC"
-            }
-        }
+
         keyboardView.invalidateAllKeys()
     }
 
