@@ -1,0 +1,10 @@
+<resources>
+    <color name="key_bg">#AEAEB2</color>
+    <color name="key_bg_dark">#1C1C1E</color>
+    <color name="key_text">#FFFFFF</color>
+    <color name="keyboard_bg">#000000</color>
+    <color name="tone_row_bg">#000000</color>
+    <color name="delete_tint">#FF3B30</color>
+    <color name="shift_active">#00C85A</color>
+    <color name="accent_green">#00BE5A</color>
+</resources>

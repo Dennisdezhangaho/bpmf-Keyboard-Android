@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    极简布局：声调选择条（按需显示）+ 系统风格 KeyboardView
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/keyboard_bg">
+
+    <!-- Tone row: hidden until a vowel syllable is detected -->
+    <LinearLayout
+        android:id="@+id/rowA0"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/key_row_height"
+        android:orientation="horizontal"
+        android:background="@color/tone_row_bg"
+        android:visibility="gone">
+
+        <Button android:id="@+id/tone1"
+            style="@style/ToneKey"
+            android:layout_width="0dp"
+            android:layout_weight="1"/>
+
+        <View android:layout_width="1dp" android:layout_height="match_parent"
+            android:background="#FFFFFF"/>
+
+        <Button android:id="@+id/tone2"
+            style="@style/ToneKey"
+            android:layout_width="0dp"
+            android:layout_weight="1"/>
+
+        <View android:layout_width="1dp" android:layout_height="match_parent"
+            android:background="#FFFFFF"/>
+
+        <Button android:id="@+id/tone3"
+            style="@style/ToneKey"
+            android:layout_width="0dp"
+            android:layout_weight="1"/>
+
+        <View android:layout_width="1dp" android:layout_height="match_parent"
+            android:background="#FFFFFF"/>
+
+        <Button android:id="@+id/tone4"
+            style="@style/ToneKey"
+            android:layout_width="0dp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <!-- Custom KeyboardView: draws letter vs modifier keys with distinct colours -->
+    <com.dennisli.bpmfkeyboard.BopomofoKeyboardView
+        android:id="@+id/keyboardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:keyBackground="@drawable/key_bg_selector"
+        android:background="@color/keyboard_bg"/>
+
+</LinearLayout>

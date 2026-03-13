@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Key width rules (must sum to exactly 100% per row):
+      Row 1 : 10 × 10%p = 100%
+      Row 2 : 10 × 10%p = 100%
+      Row 3 : 15% + 5 × 14% + 15% = 100%
+      Row 4 : 20% + 60% + 20% = 100%
+-->
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:keyWidth="10%p"
+    android:keyHeight="@dimen/key_row_height"
+    android:horizontalGap="0dp"
+    android:verticalGap="0dp">
+
+    <!-- Row 1: 1 2 3 4 5 6 7 8 9 0 -->
+    <Row>
+        <Key android:codes="49"  android:keyLabel="1" android:keyEdgeFlags="left"/>
+        <Key android:codes="50"  android:keyLabel="2"/>
+        <Key android:codes="51"  android:keyLabel="3"/>
+        <Key android:codes="52"  android:keyLabel="4"/>
+        <Key android:codes="53"  android:keyLabel="5"/>
+        <Key android:codes="54"  android:keyLabel="6"/>
+        <Key android:codes="55"  android:keyLabel="7"/>
+        <Key android:codes="56"  android:keyLabel="8"/>
+        <Key android:codes="57"  android:keyLabel="9"/>
+        <Key android:codes="48"  android:keyLabel="0" android:keyEdgeFlags="right"/>
+    </Row>
+
+    <!-- Row 2: ! @ # ¥ % ^ & * ( ) -->
+    <Row>
+        <Key android:codes="33"  android:keyLabel="!" android:keyEdgeFlags="left"/>
+        <Key android:codes="64"  android:keyLabel="@"/>
+        <Key android:codes="35"  android:keyLabel="#"/>
+        <Key android:codes="165" android:keyLabel="\uFFE5"/>
+        <Key android:codes="37"  android:keyLabel="%"/>
+        <Key android:codes="94"  android:keyLabel="^"/>
+        <Key android:codes="38"  android:keyLabel="&amp;"/>
+        <Key android:codes="42"  android:keyLabel="*"/>
+        <Key android:codes="40"  android:keyLabel="("/>
+        <Key android:codes="41"  android:keyLabel=")" android:keyEdgeFlags="right"/>
+    </Row>
+
+    <!-- Row 3: #+=(15%) + / ~ , . ? (5×14%) + Delete(15%) = 100% -->
+    <Row>
+        <Key android:codes="-2"  android:keyLabel="#\+="
+             android:keyWidth="15%p" android:keyEdgeFlags="left"/>
+        <Key android:codes="47"  android:keyLabel="/" android:keyWidth="14%p"/>
+        <Key android:codes="126" android:keyLabel="~" android:keyWidth="14%p"/>
+        <Key android:codes="44"  android:keyLabel="," android:keyWidth="14%p"/>
+        <Key android:codes="46"  android:keyLabel="." android:keyWidth="14%p"/>
+        <Key android:codes="63"  android:keyLabel="?" android:keyWidth="14%p"/>
+        <Key android:codes="-5"  android:keyLabel="\u232B"
+             android:keyWidth="15%p" android:keyEdgeFlags="right"
+             android:isRepeatable="true"/>
+    </Row>
+
+    <!-- Row 4: ABC(20%) + Space(60%) + Return(20%) = 100% -->
+    <Row android:rowEdgeFlags="bottom">
+        <Key android:codes="-3"  android:keyLabel="ABC"
+             android:keyWidth="20%p" android:keyEdgeFlags="left"/>
+        <Key android:codes="32"  android:keyLabel="Space" android:keyWidth="60%p"/>
+        <Key android:codes="10"  android:keyLabel="\u23CE"
+             android:keyWidth="20%p" android:keyEdgeFlags="right"/>
+    </Row>
+
+</Keyboard>

@@ -1,0 +1,11 @@
+<resources>
+    <dimen name="key_row_height">48dp</dimen>
+    <dimen name="key_row_margin_top">3dp</dimen>
+    <dimen name="key_margin_h">2dp</dimen>
+    <dimen name="func_shift_width">48dp</dimen>
+    <dimen name="func_delete_width">48dp</dimen>
+    <dimen name="func_third_width">48dp</dimen>
+    <dimen name="func_secondary_width">52dp</dimen>
+    <dimen name="func_globe_width">44dp</dimen>
+    <dimen name="func_return_width">80dp</dimen>
+</resources>
